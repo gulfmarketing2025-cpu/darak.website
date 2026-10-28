@@ -301,7 +301,7 @@ const loc=CONFIG.phone.replace(/\D/g,''),intl=loc?'966'+loc.replace(/^0/,''):'';
 const wa=t=>'https://wa.me/'+intl+'?text='+encodeURIComponent(t);
 let SEL=0;
 if(!loc){$$('.ct').forEach(e=>e.classList.add('nc'));console.warn('أدخل رقم الهاتف في CONFIG.phone')}
-else{$$('.tel').forEach(a=>a.href='tel:+'+intl);$$('.wal').forEach(a=>a.href=wa(a.dataset.m||CONFIG.waMsg))}
+else{$$('.tel').forEach(a=>a.href='tel:'+loc);$$('.wal').forEach(a=>a.href=wa(a.dataset.m||CONFIG.waMsg))}
 $('#city').textContent=CONFIG.city;
 const draw=()=>{$$('#tb button').forEach((b,i)=>b.setAttribute('aria-selected',i===SEL));
  $('#pn').innerHTML=CONFIG.tabs[SEL].items.map((s,i)=>`<article class="c" style="animation-delay:${i*60}ms"><div class="n">${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p>${loc?`<a href="${wa('السلام عليكم، أرغب في الاستفسار عن خدمة: '+s[0])}" target="_blank" rel="noopener">اسأل عن الخدمة ←</a>`:''}</article>`).join('')};
